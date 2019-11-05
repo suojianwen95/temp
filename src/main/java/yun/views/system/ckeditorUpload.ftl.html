@@ -1,0 +1,13 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><title></title></head><body>
+<script>
+    <#if notice=="success">
+    var url = '/api/show/img?module=soft&attach=${name}';
+    <#else/>
+    <#if notice=="error">
+    alert("${message}");
+    var url = "";
+    </#if>
+    </#if>
+    window.parent.CKEDITOR.tools.callFunction("${callback}" ,url ,"");
+</script>
+</body></html>

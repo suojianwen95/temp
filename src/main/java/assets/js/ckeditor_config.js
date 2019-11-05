@@ -105,7 +105,7 @@ CKEDITOR.on('dialogDefinition', function(ev)
                 editor._.filebrowserSe = this;
 
                 // if using jQuery
-                $(fb.getInputElement().getParent().$).append('<input type="hidden" name="module" value="'+ getModule() +'">');
+                $(fb.getInputElement().getParent().$).append('<input type="hidden" name="module" value="soft">');
 
                 // modifying the URL
 

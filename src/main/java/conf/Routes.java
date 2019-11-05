@@ -23,6 +23,7 @@ import ninja.Router;
 import ninja.application.ApplicationRoutes;
 import ninja.utils.NinjaProperties;
 import yun.controllers.ApplicationController;
+import yun.controllers.DashController;
 import yun.controllers.common.ImageController;
 
 
@@ -51,6 +52,9 @@ public class Routes implements ApplicationRoutes {
         }
         // 图片显示
         router.GET().route("/api/show/img").with(ImageController::show_img);
+
+        // 图片上传
+        router.POST().route("/dash/upload").with(DashController::upload);
 
         webRoutes.init(router);
         customerRoutes.init(router);
