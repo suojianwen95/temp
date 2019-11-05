@@ -1,0 +1,95 @@
+<#include "/yun/views/layout/web.layout.ftl.html" />
+<#macro title>医疗卫生行业优秀软件展示平台-软件详情</#macro>
+
+<#macro body>
+    <link rel="stylesheet" href="/assets/web/css/default.min.css?t=227" />
+
+    <div class="cg">
+        <div class="hd-search">
+            <div class="hd-search-left">
+                <a href="/"><img class="am-hide-md-down" src="/assets/web/images/logo.jpg" /></a>
+                <a href="/"><img class="am-show-md-down" src="/assets/web/images/logo-sm.jpg" /></a>
+            </div>
+            <div class="hd-search-right am-hide-md-down">
+                <div class="hd-search-right-input">
+                    <!--<input type="text" name="name" value="" placeholder="搜索模版" />-->
+                    <button class="font am-show-md-down">&#xe634;</button>
+                </div>
+                <div class="hd-search-right-keyword">
+                    <#list categoryList as item>
+                        <a href="/listByCategory?categoryId=${item.id}">${item.name}</a>
+                    </#list>
+                </div>
+            </div>
+            <button class="am-show-md-down font f-btn" id="hd_botton" type="button"
+                    data-am-modal="{target: '#my-modal'}">&#xe68b;
+            </button>
+        </div>
+    </div>
+    </header>
+
+    <br/>
+    <div style="margin-top: 140px;">
+        <div class="cg">
+            <div style="width:100%;padding:0px;" >
+                <div class="comarticle-right">
+                    <h2>软件详情</h2>
+                    <table style="width: 100%;margin-top: 20px;" >
+                        <tr>
+                            <td style="width: 300px;">
+                                <div style="border: 1px;height: 300px;">
+                                    <#if item.attach?? && item.attach?length gt 0>
+                                        <img src="${reverseRoute("yun.controllers.common.ImageController","show_img","module","soft","attach",item.attach)}" style="height: 300px;width: 300px;border: 1px solid #c7c7c7;border-radius: 10px;"/>
+                                        <#else>
+                                            <img src='#' style="height: 300px;width: 300px;border: 1px solid #c7c7c7;border-radius: 10px;"/>
+                                    </#if>
+                                </div>
+                            </td>
+                            <td>
+                                <div style="margin: 20px;">
+                                    <span style="font-size: 30px; font-weight: bold;">${item.name!'暂无'}</span><br/>
+                                    <span style="height: 40px;">摘要:&ensp;${item.summary!'暂无'}</span><br/>
+                                    测试地址:
+                                    <a style="color: #00f;" href="${item.url!'#'}">${item.url!'暂无'}</a><br/>
+                                    官方网址:
+                                    <a style="color: #00f;" href="${item.site!'#'}">${item.site!'暂无'}</a><br/>
+                                    技术平台: &ensp;${item.platform!'暂无'}<br/>
+                                    联系人: &ensp;${item.contact!'暂无'}<br/>
+                                    联系人电话: &ensp;${item.telphone!'暂无'}<br/>
+                                    <br/><br/>
+                                    <span style="font-size: 15px;padding-top:50px;">
+                                        <em>更新时间：${item.created!'-'}</em>
+                                        <em>评分：${item.score!'0'}</em>
+                                        <em>开发商：${item.developer!'不详'}</em>
+                                        <em>星级：
+                                            <#if item.starNumber == 1>★</#if>
+                                            <#if item.starNumber == 2>★★</#if>
+                                            <#if item.starNumber == 3>★★★</#if>
+                                            <#if item.starNumber == 4>★★★★</#if>
+                                            <#if item.starNumber == 5>★★★★★</#if>
+                                        </em>
+                                        <em>版本：${item.version!'不详'}</em>
+                                    </span>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                <br/>
+                                <span style="padding-left:20px;font-size: 20px;">软件简介</span>
+                                <hr/>
+                                <div style="margin: 20px;">
+                                    <#noescape>${item.content!'无'}</#noescape>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</#macro>
+
+<#macro footer>
+</#macro>

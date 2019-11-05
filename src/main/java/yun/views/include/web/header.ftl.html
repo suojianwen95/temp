@@ -1,0 +1,19 @@
+<!-- header -->
+<header class="hd">
+    <div class="hd-top am-hide-md-down">
+        <div class="cg">
+            <div class="hd-top-left">
+                <a href="/">综合云管理平台</a>
+            </div>
+            <div class="hd-top-right">
+                <#if session??&&session.member??>
+                    嗨! 你好: ${session.member}
+                    <a href="/logout" style="color: #00f;">退出</a>
+                    <#else>
+                        <a href="/join" style="color: #00f;">注册</a>
+                        <a href="/login" style="color: #00f;">登录</a>
+                </#if>
+
+            </div>
+        </div>
+    </div>

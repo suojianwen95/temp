@@ -1,0 +1,165 @@
+<#include "/yun/views/layout/web1.layout.ftl.html" />
+<#macro title>医疗卫生行业优秀软件展示平台-软件详情</#macro>
+
+<#macro body>
+
+    <section class="banner">
+
+        <#if categoryId??>
+            <#list categoryList as item>
+                <#if item??&&(item.id==categoryId)>
+                    <img src="/assets/web/images/${item.id-1}.jpg" alt="">
+                </#if>
+            </#list>
+            <#else>
+                <img src="/assets/web/images/0.jpg" alt="">
+        </#if>
+    </section>
+
+    <div class="vicenav">
+        <div class="container2">
+            <div class="vicenavwrap">
+                <menu class="menu clearfix twomenu" id="menu">
+                    <div>
+                       <a class="cur" href="#">${item.name}</a>
+                    </div>
+                </menu>
+            </div>
+        </div>
+    </div>
+
+    <div class="mbx">
+        <div class="container2">
+            <div class="mbxwrap">
+                您当前的位置：
+                <a href="/">首页</a> >
+                <a href="/listByCategory?categoryId=${item.category.id}">${item.category.name}</a> >
+                <em>${item.name}</em>
+            </div>
+        </div>
+    </div>
+
+    <div class="nycontainer">
+        <div class="container2">
+            <div class="nytit">
+                <h2>${item.name}</h2>
+                <!--<h3>${item.summary}</h3>-->
+                <span>星级:
+                    <#if item.starNumber == 1>★</#if>
+                    <#if item.starNumber == 2>★★</#if>
+                    <#if item.starNumber == 3>★★★</#if>
+                    <#if item.starNumber == 4>★★★★</#if>
+                    <#if item.starNumber == 5>★★★★★</#if>
+                    |  评分: ${item.score!'0'}
+                </span>
+            </div>
+            <div class="newshow clearfix">
+                <div class="newshowtit">
+                    <h1>${item.summary!''}</h1>
+                    <div class="date">
+                        开发商：${item.developer!'不详'} | 技术平台: ${item.platform!'暂无'} | 版本: ${item.version!'不详'} │ 发表时间：${item.created?string('yyyy-MM-dd')}
+                    </div>
+                </div>
+                <div class="newshowtxt">
+                    <div class="newshowimg">
+                        <#if item.attach?? && item.attach?length gt 0>
+                            <img src="${reverseRoute("yun.controllers.common.ImageController","show_img","module","soft","attach",item.attach)}" />
+                            <#else>
+                                <img src='/assets/web1/images/news.jpg'/>
+                        </#if>
+                    </div>
+                    <#noescape>${item.content!'无'}</#noescape>
+                </div>
+                <div class="prev-next">
+                    <a class="prev" href="${item.url!''}"><b>测试地址: </b>${item.url!''}</a>
+                    <a class="prev" href="${item.site!''}"><b>官方网址: </b>${item.site!''}</a>
+                    <a class="next" href="#"><b>联系人: </b>${item.contact!'暂无'}</a>
+                    <a class="next" href="#"><b>联系电话: </b>${item.telphone!'暂无'}</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--<div class="nynews">-->
+        <!--<div class="container2">-->
+            <!--<div class="nynewwrap">-->
+                <!--<div class="nytit2">-->
+                    <!--<span></span>-->
+                    <!--<h3>新闻资讯</h3>-->
+                <!--</div>-->
+                <!--<ul class="clearfix">-->
+                    <!--<li>-->
+                        <!--<div class="redbg">-->
+                            <!--<a class="nynewstit" href="news-show.html">企业如何把握集客营销命脉</a>-->
+                            <!--<p>硅谷风险资本家，曾任苹果高管的Guy Kawasaki说过，“如果你手头的钱多于智慧，那么就应该专注于推播式营销。如果相反的话，就应该专注于集客营销。”</p>-->
+                            <!--<a class="view" href="news-show.html">VIEW DETAILS</a>-->
+                        <!--</div>-->
+                        <!--<div class="redbghover"></div>-->
+                    <!--</li>-->
+                    <!--<li>-->
+                        <!--<div class="redbg">-->
+                            <!--<a class="nynewstit" href="news-show.html">强大信息流时代，视频广告如何吸睛</a>-->
+                            <!--<p>视频广告多投放在电视、网络、电子广告屏幕，其数量之大，品类之多，相信大家都有感受，但要在众多视频广告中挑选出让人印象深刻的</p>-->
+                            <!--<a class="view" href="news-show.html">VIEW DETAILS</a>-->
+                        <!--</div>-->
+                        <!--<div class="redbghover"></div>-->
+                    <!--</li>-->
+                    <!--<li>-->
+                        <!--<div class="redbg">-->
+                            <!--<a class="nynewstit" href="news-show.html">全程式贴身服务，助力品牌电商客户规模化交付</a>-->
+                            <!--<p>不过如何把电商类客户服务好，其实是很有挑战的，这不是一个单纯的产品技术问题也不是一个“大数据”课题。</p>-->
+                            <!--<a class="view" href="news-show.html">VIEW DETAILS</a>-->
+                        <!--</div>-->
+                        <!--<div class="redbghover"></div>-->
+                    <!--</li>-->
+                    <!--<li>-->
+                        <!--<div class="redbg">-->
+                            <!--<a class="nynewstit" href="news-show.html">企业如何把握集客营销命脉</a>-->
+                            <!--<p>硅谷风险资本家，曾任苹果高管的Guy Kawasaki说过，“如果你手头的钱多于智慧，那么就应该专注于推播式营销。如果相反的话，就应该专注于集客营销。”</p>-->
+                            <!--<a class="view" href="news-show.html">VIEW DETAILS</a>-->
+                        <!--</div>-->
+                        <!--<div class="redbghover"></div>-->
+                    <!--</li>-->
+                <!--</ul>-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</div>-->
+
+    <div class="nynews">
+        <div class="container2">
+            <div class="nynewwrap">
+                <div class="nytit2">
+                    <span></span>
+                    <h3>最新系统</h3>
+                </div>
+                <div class="pro">
+                    <ul class="clearfix">
+                        <#list softList as item>
+                            <li>
+                                <div class="pic">
+                                    <a href="/detail?softId=${item.id}">
+                                        <#if item.attach?? && item.attach?length gt 0>
+                                            <img class="vcenter" src="${reverseRoute("yun.controllers.common.ImageController","show_img","module","soft","attach",item.attach)}" />
+                                            <#else>
+                                                <img class="vcenter" src='/assets/web1/images/news.jpg'/>
+                                        </#if>
+                                        <div class="probg"></div>
+                                    </a>
+                                </div>
+                                <div class="protxt">
+                                    <a href="/detail?softId=${item.id}">${item.name!''}</a>
+                                    <p>${item.summary!''}</p>
+                                </div>
+                            </li>
+                        </#list>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</#macro>
+
+<#macro footer>
+</#macro>

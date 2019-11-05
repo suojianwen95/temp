@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh_CN">
+<head>
+    <meta charset="utf-8">
+    <title><#if title?exists><@title/></#if></title>
+    <meta name="description" content="">
+    <meta name="keyword" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="format-detection" content="telephone=no">
+    <meta name="renderer" content="">
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+
+    <link rel="alternate icon" type="image/png" href="/assets/web/images/favicon.png">
+    <link rel="icon" href="/assets/web/images/favicon.ico" type="image/x-icon">
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <link rel="stylesheet" href="/assets/web/css/default.min.css?t=227" />
+    <!--[if (gte IE 9)|!(IE)]><!-->
+    <script type="text/javascript" src="/assets/web/lib/jquery/jquery.min.js"></script>
+    <!--<![endif]-->
+    <!--[if lte IE 8 ]>
+    <script src="/assets/js/jquery/jquery-2.2.4.min.js"></script>
+
+    <script src="http://cdn.staticfile.org/modernizr/2.8.3/modernizr.js"></script>
+
+    <script src="/assets/web/lib/amazeui/amazeui.ie8polyfill.min.js"></script>
+    <![endif]-->
+    <script type="text/javascript" src="/assets/web/lib/handlebars/handlebars.min.js"></script>
+    <script type="text/javascript" src="/assets/web/lib/iscroll/iscroll-probe.js"></script>
+    <script type="text/javascript" src="/assets/web/lib/amazeui/amazeui.min.js"></script>
+    <script type="text/javascript" src="/assets/web/lib/raty/jquery.raty.js"></script>
+    <script type="text/javascript" src="/assets/web/js/main.min.js?t=1"></script>
+</head>
+
+<body style="">
+
+<#include "../include/web/header.ftl.html"/>
+<#if body?exists><@body/></#if>
+<#include "../include/web/footer.ftl.html"/>
+
+<#if footer?exists><@footer/></#if>
+
+</body>
+</html>

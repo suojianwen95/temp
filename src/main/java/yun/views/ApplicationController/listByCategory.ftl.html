@@ -1,0 +1,201 @@
+<#include "/yun/views/layout/web1.layout.ftl.html" />
+<#macro title>医疗卫生行业优秀软件展示平台-软件列表</#macro>
+
+<#macro body>
+
+<section class="banner">
+
+    <#if categoryId??>
+        <#list categoryList as item>
+            <#if item??&&(item.id==categoryId)>
+                <img src="/assets/web/images/${item.id-1}.jpg" alt="">
+            </#if>
+        </#list>
+        <#else>
+            <img src="/assets/web/images/0.jpg" alt="">
+    </#if>
+</section>
+
+<div class="vicenav">
+    <div class="container2">
+        <div class="vicenavwrap">
+            <menu class="menu clearfix twomenu" id="menu">
+                <div>
+                    <#if categoryId??>
+                        <#list categoryList as item>
+                            <#if item??&&(item.id==categoryId)>
+                                <a class="cur" href="#">${item.name}</a>
+                            </#if>
+                        </#list>
+                        <#else>
+                            <a class="cur" href="#">全部系统</a>
+                    </#if>
+                </div>
+            </menu>
+        </div>
+    </div>
+</div>
+
+<div class="mbx">
+    <div class="container2">
+        <div class="mbxwrap">
+            您当前的位置：<a href="/">首页</a> >
+            <#if categoryId??>
+                <#list categoryList as item>
+                    <#if item??&&(item.id==categoryId)>
+                        <a href="#">${item.name}</a>
+                    </#if>
+                </#list>
+                <#else>
+                    <a href="#">全部系统</a>
+            </#if>
+        </div>
+    </div>
+</div>
+
+<div class="nycontainer">
+    <div class="container2">
+        <div class="nytit">
+
+            <#if categoryId??>
+                <#list categoryList as item>
+                    <#if item??&&(item.id==categoryId)>
+                        <h2>${item.name}</h2>
+                    </#if>
+                </#list>
+                <#else>
+                    <h2>全部系统</h2>
+            </#if>
+
+            <h3>创意精彩生活;</h3>
+            <span>Creative wonderful life; </span>
+        </div>
+
+        <div class="news">
+
+            <div class="newsfirst clearfix">
+                <#list page.items as item>
+                    <#if item_index==0>
+                        <div class="nleft pull-left">
+                            <div class="pic">
+                                <a href="/detail?softId=${item.id}">
+                                    <#if item.attach?? && item.attach?length gt 0>
+                                        <img class="vcenter" src="${reverseRoute("yun.controllers.common.ImageController","show_img","module","soft","attach",item.attach)}" />
+                                        <#else>
+                                            <img class="vcenter" src='/assets/web1/images/news.jpg'/>
+                                    </#if>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="nright pull-right">
+                            <div class="newstit">
+                                <span>最新发布</span>
+                                <em>THE LASTEST</em>
+                            </div>
+                            <div class="newscon clearfix">
+                                <div class="date pull-left">
+                                    <span>${item.created?string('dd')}</span>
+                                    <em>${item.created?string('yyyy-MM')}</em>
+                                </div>
+                                <div class="newfirstcon pull-left">
+                                    <a href="/detail?softId=${item.id}">${item.name!'无'}</a>
+                                    <p>${item.summary!'无'}</p>
+                                </div>
+                            </div>
+                        </div>
+                        <#break>
+                    </#if>
+                </#list>
+            </div>
+
+            <ul>
+                <#list page.items as item>
+                    <#if item_index!=0>
+                        <li class="clearfix">
+                            <div class="newleft pull-left">
+                                <div class="pic">
+                                    <a href="/detail?softId=${item.id}">
+                                        <#if item.attach?? && item.attach?length gt 0>
+                                            <img class="vcenter" src="${reverseRoute("yun.controllers.common.ImageController","show_img","module","soft","attach",item.attach)}" />
+                                            <#else>
+                                                <img class="vcenter" src='/assets/web1/images/news.jpg'/>
+                                        </#if>
+                                    </a>
+                                </div>
+                                <div class="date">
+                                    <span>${item.created?string('dd')}</span>
+                                    <em>${item.created?string('yy-MM')}</em>
+                                </div>
+                            </div>
+                            <div class="newright pull-right">
+                                <a class="newscontit" href="/detail?softId=${item.id}">${item.name!'无'}</a>
+                                <p><span>${item.summary!'无'}</span>
+                                    <a href="/detail?softId=${item.id}">【查看详情】</a>
+                                </p>
+                            </div>
+                        </li>
+                    </#if>
+                </#list>
+            </ul>
+
+            <div class="page">
+                <#include "/yun/views/include/pagerWeb.ftl.html" />
+                <!--<a class="bgnone" href="#">首页</a>-->
+                <!--<a class="bgnone" href="#">上一页</a>-->
+                <!--<a class="active" href="#">1</a>-->
+                <!--<a href="#">2</a>-->
+                <!--<a href="#">3</a>-->
+                <!--<a href="#">4</a>-->
+                <!--<a href="#">5</a>-->
+                <!--<a href="#">6</a>-->
+                <!--<a href="#">7</a>-->
+                <!--<a class="bgnone" href="#">下一页</a>-->
+                <!--<a class="bgnone" href="#">尾页</a>-->
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div class="nynews">
+    <div class="container2">
+        <div class="nynewwrap">
+            <div class="nytit2">
+                <span></span>
+                <h3>优秀系统</h3>
+            </div>
+            <div class="pro">
+                <ul class="clearfix">
+                    <#list page.items as item>
+                        <#if item_index lt 4>
+                            <li>
+                                <div class="pic">
+                                    <a href="/detail?softId=${item.id}">
+                                        <#if item.attach?? && item.attach?length gt 0>
+                                            <img class="vcenter" src="${reverseRoute("yun.controllers.common.ImageController","show_img","module","soft","attach",item.attach)}" />
+                                            <#else>
+                                                <img class="vcenter" src='/assets/web1/images/news.jpg'/>
+                                        </#if>
+                                        <!--<img class="vcenter" src="/assets/web1/images/pro1.jpg" alt="" />-->
+                                        <div class="probg"></div>
+                                    </a>
+                                </div>
+                                <div class="protxt">
+                                    <a href="/detail?softId=${item.id}">${item.name!'无'}</a>
+                                    <p>${item.summary!'无'}</p>
+                                </div>
+                            </li>
+                        </#if>
+                    </#list>
+
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+</#macro>
+<#macro footer>
+
+</#macro>

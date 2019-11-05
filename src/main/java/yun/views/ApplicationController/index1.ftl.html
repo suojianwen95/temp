@@ -1,0 +1,303 @@
+<#include "/yun/views/layout/web.layout.ftl.html" />
+<#macro title>医疗卫生行业优秀软件展示平台</#macro>
+
+<#macro body>
+    <div class="cg">
+        <div class="hd-search">
+            <div class="hd-search-left">
+                <a href="/"><img class="am-hide-md-down" src="/assets/web/images/logo.jpg" /></a>
+                <a href="/"><img class="am-show-md-down" src="/assets/web/images/logo-sm.jpg" /></a>
+            </div>
+            <div class="hd-search-right am-hide-md-down">
+                <div class="hd-search-right-input">
+                    <!--<input type="text" name="name" value="" placeholder="搜索模版" />-->
+                    <button class="font am-show-md-down">&#xe634;</button>
+                </div>
+                <div class="hd-search-right-keyword">
+                    <#list categoryList as item>
+                      <a href="/listByCategory?categoryId=${item.id}">${item.name}</a>
+                    </#list>
+                </div>
+            </div>
+            <button class="am-show-md-down font f-btn" id="hd_botton" type="button"
+                    data-am-modal="{target: '#my-modal'}">&#xe68b;
+            </button>
+        </div>
+    </div>
+</header>
+
+<!-- 滑动 -->
+<div class="am-cf"></div>
+<div class="am-slider am-slider-default index-lunbo" data-am-flexslider="{playAfterPaused: 8000}">
+    <ul class="am-slides">
+        <li><img src="/assets/web/images/0.jpg" /></li>
+        <li><img src="/assets/web/images/1.jpg" /></li>
+        <li><img src="/assets/web/images/2.jpg" /></li>
+        <li><img src="/assets/web/images/3.jpg" /></li>
+        <li><img src="/assets/web/images/4.jpg" /></li>
+        <li><img src="/assets/web/images/5.jpg" /></li>
+    </ul>
+
+</div>
+<!-- 滑动 -->
+<div class="notice">
+    <div class="cg">
+        <div class="am-u-sm-12 am-u-md-12 am-u-lg-8">
+            <div class="notice-left">
+                <div class="notice-left-img" id="noticeimg">
+                    <#list softList as item>
+                        <#if item??&&item_index==0>
+                            <a href="/detail?softId=${item.id}">
+                                <#if item.attach?? && item.attach?length gt 0>
+                                    <img src="${reverseRoute("yun.controllers.common.ImageController","show_img","module","soft","attach",item.attach)}" />
+                                    <#else>
+                                        <img src="/assets/web/images/demo7.jpg" />
+                                </#if>
+                            </a>
+                        </#if>
+                    </#list>
+                </div>
+                <div class="notice-left-slider">
+                    <div class="am-slider am-slider-default am-slider-carousel"
+                         data-am-flexslider="{itemWidth: 200, itemMargin: 5, slideshow: false}">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="am-u-sm-12 am-u-md-12 am-u-lg-4">
+            <div class="notice-right">
+                <div class="notice-right-div">
+                    <h1 class="comh1">
+                        <#list categoryList as item>
+                            <#if item??&&item_index==0>
+                                ${item.name}
+                                <em>
+                                    <a href="/listByCategory?categoryId=${item.id}"><b>更多</b><i >&#xe696;</i></a>
+                                </em>
+                            </#if>
+                        </#list>
+                        <img id = "img1" src="/assets/web/images/demo2.jpg"/>
+                        <strong>
+                            <a href="" id = "link1" ></a>
+                        </strong>
+                    </h1>
+                    <!-- 只取6个 -->
+                    <ul id = "top1">
+                        <li><a href="#"><span>暂无相关软件</span></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 广告 -->
+<div class="ads">
+    <div class="cg">
+        <img src="/assets/web/images/demo3.jpg" />
+    </div>
+</div>
+
+<div class="index-sliderbottom">
+        <div class="cg">
+            <div class="am-u-sm-12 am-u-md-12 am-u-lg-12">
+
+                <h1 class="comh1">
+                    优秀软件
+                    <em>
+                        <a href="/listByCategory"><b>更多</b><i >&#xe696;</i></a>
+                    </em>
+
+                </h1>
+
+                <div class="am-slider am-slider-default am-slider-carousel"
+                     data-am-flexslider="{itemWidth: 200, itemMargin: 15, slideshow: false}">
+                    <ul class="am-slides">
+                        <#list softList as item>
+                            <li>
+                                <a href="/detail?softId=${item.id}">
+                                    <#if item.attach?? && item.attach?length gt 0>
+                                        <img src="${reverseRoute("yun.controllers.common.ImageController","show_img","module","soft","attach",item.attach)}" />
+                                        <#else>
+                                            <img src="/assets/web/images/demo7.jpg" />
+                                    </#if>
+                                    <span>${item.name}</span>
+                                </a>
+                            </li>
+                        </#list>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<div class="ads">
+    <div class="cg">
+        <img src="/assets/web/images/0.jpg" />
+    </div>
+</div>
+    <div class="index-category">
+        <div class="cg">
+            <div class="am-u-sm-12 am-u-md-12 am-u-lg-4">
+                <div class="index-category-left">
+                    <h1 class="comh1">
+                        <#list categoryList as item>
+                            <#if item??&&item_index==1>
+                                ${item.name}
+                                <em>
+                                    <a href="/listByCategory?categoryId=${item.id}"><b>更多</b><i >&#xe696;</i></a>
+                                </em>
+                                <img id="img2" src="/assets/web/images/demo2.jpg"/>
+                            </#if>
+                        </#list>
+                    </h1>
+
+                    <!-- 只取6个 -->
+                    <ul class="comcategory" id = "top2">
+                        <li><a href="#"><span>暂无相关软件</span><i>2016-06-16</i></a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="am-u-sm-12 am-u-md-12 am-u-lg-4">
+                <div class="index-category-left">
+                    <h1 class="comh1">
+                        <#list categoryList as item>
+                            <#if item??&&item_index==2>
+                                ${item.name}
+                                <em>
+                                    <a href="/listByCategory?categoryId=${item.id}"><b>更多</b><i >&#xe696;</i></a>
+                                </em>
+                                <img id="img3" src="/assets/web/images/demo2.jpg"/>
+                            </#if>
+                        </#list>
+                    </h1>
+
+                    <!-- 只取6个 -->
+                    <ul class="comcategory" id = "top3">
+                        <li><a href="#"><span>暂无相关软件</span><i>2016-06-16</i></a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="am-u-sm-12 am-u-md-12 am-u-lg-4">
+                <div class="index-category-right">
+
+                    <div class="am-tabs" data-am-tabs="{noSwipe: 1}" id="doc-tab-demo-1">
+                        <ul class="am-tabs-nav am-nav am-nav-tabs">
+                            <li class="am-active">
+                                <!--<a href="javascript: void(0)">软件下载</a>-->
+                                <#list categoryList as item>
+                                    <#if item??&&item_index==3>
+                                        <a href="javascript: void(0)">${item.name}</a>
+                                    </#if>
+                                </#list>
+                            </li>
+                            <li>
+                                <#list categoryList as item>
+                                    <#if item??&&item_index==4>
+                                        <a href="javascript: void(0)">${item.name}</a>
+                                    </#if>
+                                </#list>
+                            </li>
+                        </ul>
+
+                        <div class="am-tabs-bd">
+                            <div class="am-tab-panel am-active">
+                                <ul class="comcategory" id = "top4">
+                                    <li><a href="#"><span>暂无</span><i>2016-06-16</i></a></li>
+                                </ul>
+                            </div>
+                            <div class="am-tab-panel">
+                                <ul class="comcategory" id = "top5">
+                                    <li><a href="#"><span>暂无</span><i>2016-06-16</i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $.ajax({
+                url:'/api/softList',//地址
+                dataType:'json',//数据类型
+                type:'GET',//类型
+                timeout:2000,//超时
+                //请求成功
+                success:function(data,status) {
+                    var datas = data.allSoft;
+                    var top1 = datas[0];
+                    var container1 = document.getElementById("top1");
+                    var img1 = document.getElementById("img1");
+                    var link1 = document.getElementById("link1");
+                    if(top1.length >0) {
+                        container1.innerHTML = '';
+                        for(var i = 0; i<top1.length; i++) {
+                            if(i==0){
+                                img1.src = '/api/show/img?module=soft&attach='+top1[i].attach;
+                                link1.innerHTML = top1[i].name
+                                link1.href= '/detail?softId='+top1[i].id;
+                            }
+                              container1.innerHTML += '<li><a href="/detail?softId='+top1[i].id+'"><span>'+top1[i].name+'</span></a></li>';
+                        }
+                    }
+
+                    var top2 = datas[1];
+                    var container2 = document.getElementById("top2");
+                    var img2 = document.getElementById("img2");
+                    if(top2.length >0) {
+                        container2.innerHTML = '';
+                        for(var i = 0; i<top2.length; i++) {
+                            if(i==0){
+                                img2.src = '/api/show/img?module=soft&attach='+top2[i].attach;
+                            }
+                            container2.innerHTML +=
+                                '<li><a href="/detail?softId='+top2[i].id+'"><span>'+top2[i].name+'</span><i>'+top2[i].created+'</i></a></li>';
+                        }
+                    }
+
+                    var top3 = datas[2];
+                    var container3 = document.getElementById("top3");
+                    var img3 = document.getElementById("img3");
+                    if(top3.length >0) {
+                        container3.innerHTML = '';
+                        for(var i = 0; i<top3.length; i++) {
+                            if(i==0){
+                                img3.src = '/api/show/img?module=soft&attach='+top3[i].attach;
+                            }
+                            container3.innerHTML +=
+                                '<li><a href="/detail?softId='+top3[i].id+'"><span>'+top3[i].name+'</span><i>'+top3[i].created+'</i></a></li>';
+                        }
+                    }
+
+                    var top4 = datas[3];
+                    var container4 = document.getElementById("top4");
+                    if(top4.length >0) {
+                        container4.innerHTML = '';
+                        for(var i = 0; i<top4.length; i++) {
+                            container4.innerHTML +=
+                                '<li><a href="/detail?softId='+top4[i].id+'"><span>'+top4[i].name+'</span><i>'+top4[i].created+'</i></a></li>';
+                        }
+                    }
+
+                    var top5 = datas[4];
+                    var container5 = document.getElementById("top5");
+                    if(top5.length >0) {
+                        container5.innerHTML = '';
+                        for(var i = 0; i<top5.length; i++) {
+                            container5.innerHTML +=
+                                '<li><a href="/detail?softId='+top5[i].id+'"><span>'+top5[i].name+'</span><i>'+top5[i].created+'</i></a></li>';
+                        }
+                    }
+                }
+            })
+        })
+    </script>
+</#macro>
+<#macro footer>
+
+</#macro>

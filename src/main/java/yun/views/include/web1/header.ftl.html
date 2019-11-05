@@ -1,0 +1,38 @@
+<header class="header">
+    <section class="container">
+        <a href="#mmenu" class="glyphicon glyphicon-list phone-nav"></a>
+    </section>
+    <div class="container clearfix">
+        <div class="logo pull-left" style="height: 80px;">
+            <a href="/">
+                <img src="/assets/web1/images/logo-sm.jpg" alt="综合云管理平台" />
+            </a>
+        </div>
+        <div style="float: right;font-size:20px;line-height: 80px;">
+            <#if session??&&session.member??>
+                嗨! 你好: <span style="color: #f9002f;font-family: 'LatoRegular', sans-serif;font-weight: bold;">${session.member}</span> |
+                <a href="/logout" style="color: #0000ff;font-family: 'LatoRegular', sans-serif;font-weight: bold;">退出</a>
+                <#else>
+                    <a href="/join" style="color: #000;font-family: 'LatoRegular', sans-serif;font-weight: bold;">注册 |</a>
+                    <a href="/login" style="color: #000;font-family: 'LatoRegular', sans-serif;font-weight: bold;"> 登录</a>
+            </#if>
+        </div>
+        <nav class="nav pull-left">
+            <ul>
+                <#if categoryId??>
+                    <li ><a href="/">综合云管理平台</a></li>
+                    <#list categoryList as item>
+                        <li <#if categoryId==item.id>class="active"</#if>><a href="/listByCategory?categoryId=${item.id}" >${item.name}</a></li>
+                    </#list>
+                    <#else>
+                        <li class="active"><a href="/">综合云管理平台</a></li>
+                        <#list categoryList as item>
+                            <li><a href="/listByCategory?categoryId=${item.id}" >${item.name}</a></li>
+                        </#list>
+                </#if>
+
+
+            </ul>
+        </nav>
+    </div>
+</header>

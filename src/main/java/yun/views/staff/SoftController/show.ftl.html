@@ -1,0 +1,100 @@
+<#include "/yun/views/layout/staff.layout.ftl.html" />
+<#macro title>后台管理</#macro>
+
+
+<#macro body>
+
+    <section id="main-content">
+        <section class="wrapper">
+            <!--overview start-->
+            <div class="row">
+                <div class="col-lg-12">
+                    <h3 class="page-header"><i class="fa fa-laptop"></i> 运营中心</h3>
+                    <ol class="breadcrumb">
+                        <li><i class="fa fa-home"></i><a href="/staff/soft">软件信息管理</a></li>
+                        <li><i class="fa fa-laptop"></i>查看</li>
+                    </ol>
+                </div>
+            </div>
+            <table class="table">
+                    <tr>
+                        <th class="success">软件名称</th>
+                        <td>${item.name!''}</td>
+                    </tr>
+                    <tr>
+                        <th class="success">软件缩略图</th>
+                        <td>
+                            <#if item.attach?? && item.attach?length gt 0>
+                                <img id="preview" src="${reverseRoute("yun.controllers.common.ImageController","show_img","module","soft","attach",item.attach)}" style="height: 300px;width: 300px;"/>
+                                <#else>
+                                <img id="preview" src='' style="height: 300px;width: 300px;"/>
+                            </#if>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="success">测试地址</th>
+                        <td>${item.url!''}</td>
+                    </tr>
+                    <tr>
+                        <th class="success">官方网址</th>
+                        <td>${item.site!''}</td>
+                    </tr>
+                    <tr>
+                        <th class="success">权重</th>
+                        <td>${item.sequence!'0'}</td>
+                    </tr>
+                    <tr>
+                        <th class="success">版本</th>
+                        <td>${item.version!''}</td>
+                    </tr>
+                    <tr>
+                        <th class="success">开发商</th>
+                        <td>${item.developer!''}</td>
+                    </tr>
+                    <tr>
+                        <th class="success">技术平台</th>
+                        <td>${item.platform!''}</td>
+                    </tr>
+                    <tr>
+                        <th class="success">联系人</th>
+                        <td>${item.contact!''}</td>
+                    </tr>
+                    <tr>
+                        <th class="success">星级</th>
+                        <td>${item.starNumber!''}</td>
+                    </tr>
+                    <tr>
+                        <th class="success">电话</th>
+                        <td>${item.telphone!''}</td>
+                    </tr>
+                    <tr>
+                        <th class="success">评分</th>
+                        <td>${item.score!'0'}</td>
+                    </tr>
+                    <tr>
+                        <th class="success">软件类别</th>
+                        <td><#if item.category??>${item.category.name!''}</#if></td>
+                    </tr>
+                    <tr>
+                        <th class="success">摘要</th>
+                        <td>${item.summary!''}</td>
+                    </tr>
+                    <tr>
+                        <th class="success">软件简介</th>
+                        <td><#noescape>${item.content!''}</#noescape></td>
+                    </tr>
+                    <tr>
+                        <th class="success">创建时间</th>
+                        <td>${item.created?string["yyyy-MM-dd HH:mm:ss"]}</td>
+                    </tr>
+                    <tr>
+                        <th class="success">修改时间</th>
+                        <td>${item.modified?string["yyyy-MM-dd HH:mm:ss"]}</td>
+                    </tr>
+            </table>
+        </section>
+    </section>
+</#macro>
+
+<#macro footer>
+</#macro>

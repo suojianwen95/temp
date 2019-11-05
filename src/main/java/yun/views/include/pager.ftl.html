@@ -1,0 +1,33 @@
+<#if (page.last>=page.current)&&(page.last!=1)>
+    <nav>
+        <ul class="pagination">
+            <li <#if page.first==page.current>class="disabled"</#if>>
+                 <a href="?page=${page.first}&${page.params}&limit=${num!''}">首页</a>
+            </li>
+
+            <#if ((page.last-page.current)==0)&&(page.last==4)>
+                  <li><a href="?page=${page.last-3}${page.params}&limit=${num!''}">${page.last-3}</a></li>
+            </#if>
+
+            <#if ((page.last-page.current)==1)&&(page.last>=5)>
+                 <li><a href="?page=${page.last-4}${page.params}&limit=${num!''}">${page.last-4}</a></li>
+            </#if>
+            <#if ((page.last-page.current)==0)&&(page.last>=5)>
+                    <li><a href="?page=${page.last-4}${page.params}">${page.last-4}</a></li>
+                    <li><a href="?page=${page.last-3}${page.params}">${page.last-3}</a></li>
+            </#if>
+
+            <#assign pindex=1>
+                <#list page.pageNumbers as nb>
+                    <#if (pindex<=5)>
+                    <#if (nb==page.current)||(nb>=(page.current-2))>
+                           <li class="<#if nb==page.current>active</#if>"><a href="?page=${nb}${page.params}&limit=${num!''}">${nb}</a></li>
+                        <#assign pindex=pindex+1>
+                    </#if>
+</#if>
+
+</#list>
+       <li <#if page.last == page.current>class="disabled"</#if> ><a href="?page=${page.last}${page.params}">末页</a></li>
+</ul>
+</nav>
+</#if>

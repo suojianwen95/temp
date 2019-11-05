@@ -1,0 +1,53 @@
+<#include "/yun/views/layout/staff.layout.ftl.html" />
+<#macro title>后台管理</#macro>
+
+<#macro body>
+
+    <section id="main-content">
+        <section class="wrapper">
+            <!--overview start-->
+            <div class="row">
+                <div class="col-lg-12">
+                    <h3 class="page-header"><i class="fa fa-laptop"></i>运营中心</h3>
+                    <ol class="breadcrumb">
+                        <li><i class="fa fa-home"></i><a href="/staff/category">软件类别管理</a></li>
+                        <li><i class="fa fa-laptop"></i>编辑</li>
+                    </ol>
+                </div>
+            </div>
+            <#include "../../include/notice.ftl.html"/>
+            <div class="row">
+                <div class="col-lg-12">
+                    <section class="panel">
+                        <header class="panel-heading">
+                            编辑
+                        </header>
+                        <div class="panel-body">
+                            <div class="form">
+                                <form class="form-validate form-horizontal" id="feedback_form" method="post" action="/staff/category/update/${id!''}">
+
+                                    <div class="form-group">
+                                        <label for="name" class="control-label col-lg-2"><span class="required">*</span>类别名称</label>
+                                        <div class="col-lg-10">
+                                            <input class="form-control" id="name" name="name" value="${item.name!''}" minlength="2" type="text" required>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <div class="col-lg-offset-2 col-lg-10">
+                                            <button class="btn btn-primary" type="submit">保存</button>
+                                            <button class="btn btn-default" type="button" onclick="window.location.href = '/staff/category'">取消</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </section>
+    </section>
+</#macro>
+
+<#macro footer>
+</#macro>

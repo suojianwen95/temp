@@ -1,0 +1,11 @@
+<#if (flash.error)??>
+    <div class="btn btn-danger" style="color: #fff;background-color: #f00;">
+        ${flash.error}
+    </div>
+</#if>
+
+<#if (flash.success)??>
+    <div class="btn btn-success" style="color: #fff;background-color: #0c0;">
+        ${flash.success}
+    </div>
+</#if>

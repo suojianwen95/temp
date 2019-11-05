@@ -1,0 +1,40 @@
+<#include "/yun/views/layout/web.layout.ftl.html" />
+<#macro title>登录</#macro>
+
+<#macro header>
+    <link rel="stylesheet" href="/assets/web/css/default.min.css?t=227" />
+</#macro>
+
+<#macro body>
+
+    <div style="height: 380px;width:600px;border-radius:10px;border:1px solid #cecece;margin:40px auto;overflow: hidden;text-align: center;">
+        <div class="cgs" >
+            <#include "../include/notice.ftl.html" />
+            <form class="form-horizontal" method="post" action="/login">
+                <div class="am-u-sm-12 am-u-md-12 am-u-lg-12">
+                    <div class="user-div">
+                        <h1>用户登录</h1>
+                        <ul>
+                            <li>
+                                <i>&#xe681;</i>
+                                <input type="text" name="username" value="" style="outline:none;height: 30px;" placeholder="请输入用户名" />
+                            </li>
+                            <li>
+                                <i>&#xe680;</i>
+                                <input type="password" name="password" value="" style="outline:none;height: 30px;" placeholder="请输入密码" />
+                            </li>
+                        </ul>
+                        <span>
+                            <a href="/reset">忘记密码</a>
+                            <a href="/join">还没有帐号</a>
+                        </span>
+                        <button type="submit">登录</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</#macro>
+
+<#macro footer>
+</#macro>

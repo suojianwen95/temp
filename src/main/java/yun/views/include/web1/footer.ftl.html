@@ -1,0 +1,76 @@
+<footer class="footer">
+    <div class="container clearfix">
+        <div class="footerleft pull-left">
+            <h3>联系我们</h3>
+            <span></span>
+            <ul>
+                <li><em class="glyphicon glyphicon-earphone"></em><a href="tel:188-88888888">188-88888888</a></li>
+                <li><em class="glyphicon glyphicon-envelope"></em><a href="">support@admin.com</a></li>
+                <li><em class="glyphicon glyphicon-phone"></em><a href="tel:">188 8888 8888</a></li>
+                <li><em class="glyphicon glyphicon-map-marker"></em>山东省济南市******</li>
+            </ul>
+        </div>
+        <div class="footerright pull-right">
+            <form class="form-horizontal" method="post" action="/reg">
+                <#include "../../include/notice.ftl.html" />
+                <ul class="clearfix">
+                    <li class="li1"><input type="text" name="username" placeholder="用户名" /><span>*</span></li>
+                    <li class="li2"><input type="password" name="password" placeholder="密码" /><span>*</span></li>
+                    <li class="li6"><input type="email" name = "email" placeholder="邮箱" /><span>*</span></li>
+                    <li class="li1"><input type="text" name="mobile" placeholder="手机号" /><span>*</span></li>
+                    <li class="li2"><input type="text" name="nickname" placeholder="昵称" /></li>
+                    <!--<li class="li3"><textarea placeholder="备注"></textarea><span>*</span></li>-->
+                    </li>
+                    <li class="li5">
+                        <input type="submit" value="注册" />
+                    </li>
+                </ul>
+            </form>
+        </div>
+    </div>
+    <div class="copy">
+        <div class="container">
+            <p class="pull-left">版权所有©：济南云计算有限公司 沪ICP备00000000号-111
+                <img src="/assets/web1/images/yu.png" alt="济南云计算有限公司" />
+            </p>
+            <p class="pull-right">
+                <a href="/">综合管理平台</a>
+                <span class="weixin">
+                    <em class="slideDown">
+                        <img src="/assets/web1/images/erweima.jpg" alt="" />
+                    </em>
+                </span>
+                <span class="weibo">
+                    <a href="/">
+                        <img src="/assets/web1/images/weiboh.png" alt="" />
+                    </a>
+                </span>
+            </p>
+        </div>
+    </div>
+</footer>
+<script src="/assets/web1/js/jquery-1.8.3-jquery.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="/assets/web1/js/jquery.mmenu.all.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="/assets/web1/js/public.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript" src="/assets/web1/js/wow.min.js"></script>
+<script>
+    if (getIEVersion() !== "IE8") {
+        new WOW().init();
+    };
+</script>
+<script src="/assets/web1/js/slick.min.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+    $(function () {
+        $('.banner').slick({
+            dots: true,
+            autoplay: true,
+            arrows: false,
+            autoplaySpeed: 3000,
+        });
+    });
+</script>
+<script src="/assets/web1/js/jquery.placeholder.min.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+    $(function () { $('input, textarea').placeholder(); });
+</script>
+

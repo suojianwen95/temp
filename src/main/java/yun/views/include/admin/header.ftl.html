@@ -1,0 +1,70 @@
+<header class="header dark-bg">
+	<div class="toggle-nav">
+		<div class="icon-reorder tooltips" data-original-title="Toggle Navigation" data-placement="bottom"><i
+				class="icon_menu"></i></div>
+	</div>
+
+	<!--logo start-->
+	<a href="/" class="logo">医疗卫生行业优秀软件展示平台 <span class="lite">  </span></a>
+	<!--logo end-->
+
+	<div class="top-nav notification-row">
+		<!-- notificatoin dropdown start-->
+		<ul class="nav pull-right top-menu">
+			<li class="dropdown">
+				<a data-toggle="dropdown" class="dropdown-toggle" href="#">
+					<span class="username">欢迎：${session.member}</span>
+					<b class="caret"></b>
+				</a>
+				<ul class="dropdown-menu extended logout">
+					<div class="log-arrow-up"></div>
+					<li>
+							<a href="${reverseRoute("yun.controllers.LoginLogoutController","updatePassword")}">
+						<i class="icon_clock_alt"></i>修改密码</a>
+					</li>
+					<li>
+						<!--登录-->
+						<a href="/logout"><i class="icon_key_alt"></i>退出</a>
+					</li>
+				</ul>
+			</li>
+			<!-- user login dropdown end -->
+		</ul>
+		<!-- notificatoin dropdown end-->
+	</div>
+</header>
+<!--header end-->
+
+<!--sidebar start-->
+<aside>
+	<div id="sidebar" class="nav-collapse ">
+		<!-- sidebar menu start-->
+		<ul class="sidebar-menu">
+
+			<li class="active">
+				<!--首页-->
+				<a class="" href="${reverseRoute("yun.controllers.admin.MemberController","index")}">
+				<i class="icon_house_alt"></i>
+				<span>控制台</span>
+				</a>
+			</li>
+
+			<!-- 管理员 -->
+			<li>
+				<a class="" href="${reverseRoute("yun.controllers.admin.MemberController","index")}">
+				<i class="icon_desktop"></i>
+				<span>用户管理</span>
+				</a>
+			</li>
+			<!--<li>-->
+				<!--<a class="" href="${reverseRoute("yun.controllers.admin.OptionController","index")}">-->
+				<!--<i class="icon_piechart"></i>-->
+				<!--<span>系统参数设置</span>-->
+				<!--</a>-->
+			<!--</li>-->
+		</ul>
+
+		<!-- sidebar menu end-->
+	</div>
+</aside>
+<!--sidebar end-->

@@ -1,0 +1,94 @@
+<#include "/yun/views/layout/web.layout.ftl.html" />
+<#macro title>医疗卫生行业优秀软件展示平台-软件列表</#macro>
+
+<#macro body>
+
+<link rel="stylesheet" href="/assets/web/css/default.min.css?t=227" />
+
+<div class="cg">
+    <div class="hd-search">
+        <div class="hd-search-left">
+            <a href="/"><img class="am-hide-md-down" src="/assets/web/images/logo.jpg" /></a>
+            <a href="/"><img class="am-show-md-down" src="/assets/web/images/logo-sm.jpg" /></a>
+        </div>
+        <div class="hd-search-right am-hide-md-down">
+            <div class="hd-search-right-input">
+                <!--<input type="text" name="name" value="" placeholder="搜索模版" />-->
+                <button class="font am-show-md-down">&#xe634;</button>
+            </div>
+            <div class="hd-search-right-keyword">
+                <#list categoryList as item>
+                    <a href="/listByCategory?categoryId=${item.id}">${item.name}</a>
+                </#list>
+            </div>
+        </div>
+        <button class="am-show-md-down font f-btn" id="hd_botton" type="button"
+                data-am-modal="{target: '#my-modal'}">&#xe68b;
+        </button>
+    </div>
+</div>
+</header>
+
+<div class="ads">
+    <div class="cg">
+        <img src="/assets/web/images/demo3.jpg" />
+    </div>
+</div>
+
+<div class="comarticle">
+    <div class="cg">
+        <div class="width:100%;padding:0px;">
+            <div class="comarticle-right">
+                <h1><#if category??>${category.name}<#else>全部软件</#if></h1>
+                <ul>
+                    <#list page.items as item>
+                        <li style="height: 200px;">
+                            <table style="width: 100%; height:200px;">
+                                <tr valign="top">
+                                    <td style="width: 220px;">
+                                        <#if item.attach?? && item.attach?length gt 0>
+                                            <img  src="${reverseRoute("yun.controllers.common.ImageController","show_img","module","soft","attach",item.attach)}" style="height: 180px;width: 200px;"/>
+                                            <#else>
+                                                <img src='' style="height: 180px;width: 200px;"/>
+                                        </#if>
+                                    </td>
+                                    <td>
+                                        <a href="/detail?softId=${item.id}">
+                                            <strong>${item.name!'无'}</strong>
+                                        </a>
+                                        <span style="height: 40px;">${item.summary!'无'}</span><br/>
+                                            测试地址:
+                                            <a style="color: #00f;" href="${item.url!'#'}">${item.url!'无'}</a><br/>
+                                            官方网址:
+                                            <a style="color: #00f;" href="${item.site!'#'}">${item.site!'无'}</a>
+
+                                            <h1>
+                                                <em>更新时间：${item.created!'-'}</em>
+                                                <em>评分：${item.score!'0'}</em>
+                                                <em>开发商：${item.developer!'不详'}</em>
+                                                <em>星级：
+                                                    <#if item.starNumber == 1>★</#if>
+                                                    <#if item.starNumber == 2>★★</#if>
+                                                    <#if item.starNumber == 3>★★★</#if>
+                                                    <#if item.starNumber == 4>★★★★</#if>
+                                                    <#if item.starNumber == 5>★★★★★</#if>
+                                                </em>
+                                                <em>版本：${item.version!'不详'}</em>
+                                            </h1>
+                                    </td>
+                                </tr>
+                            </table>
+                        </li>
+                    </#list>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<#include "/yun/views/include/pager.ftl.html" />
+
+</#macro>
+<#macro footer>
+
+</#macro>
